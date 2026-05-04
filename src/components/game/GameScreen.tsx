@@ -45,6 +45,18 @@ export default function GameScreen({ game, isDarkMode, onToggleDark, onBack }: P
     }
   }, [game.isGameOver]);
 
+  // Keyboard input when pad is open
+  useEffect(() => {
+    if (!showPad) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key >= '1' && e.key <= '9') { game.input(Number(e.key)); return; }
+      if (e.key === 'Backspace' || e.key === 'Delete') { game.erase(); return; }
+      if (e.key === 'Escape') { setShowPad(false); game.deselect(); }
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [showPad, game]);
+
   const handleCellTap = (coord: import('@/lib/types').CellCoordinate) => {
     const sameCell = game.selectedCoord?.row === coord.row && game.selectedCoord?.col === coord.col;
     if (sameCell) {

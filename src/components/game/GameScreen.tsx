@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { LightBulbIcon, BackspaceIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import TopBar from './TopBar';
 import StatusBar from './StatusBar';
 import SudokuBoard from './SudokuBoard';
@@ -70,7 +71,7 @@ export default function GameScreen({ game, isDarkMode, onToggleDark, onBack }: P
         className="board-area flex flex-col w-full px-4 pt-3.5 gap-2"
         style={{
           maxWidth: 520,
-          paddingBottom: showPad ? 300 : 24,
+          paddingBottom: showPad ? 420 : 24,
           transition: 'padding-bottom 0.22s ease-out',
         }}
       >
@@ -112,7 +113,7 @@ export default function GameScreen({ game, isDarkMode, onToggleDark, onBack }: P
             style={{ color: game.hintStock > 0 ? 'var(--given-text)' : 'var(--muted)' }}
             onClick={() => { if (game.consumeHint()) game.hint(); }}
           >
-            💡
+            <LightBulbIcon className="w-6 h-6" />
             <span
               className="absolute -top-1 -right-1 text-[10px] rounded-full px-[5px] py-[1px] leading-none font-semibold"
               style={{ background: game.hintStock > 0 ? '#e53e3e' : '#888', color: '#fff', fontFamily: 'var(--font-mono)' }}
@@ -123,20 +124,20 @@ export default function GameScreen({ game, isDarkMode, onToggleDark, onBack }: P
 
           {/* Erase */}
           <button
-            className="w-10 h-10 flex items-center justify-center text-xl rounded-full transition-opacity active:opacity-50"
+            className="w-10 h-10 flex items-center justify-center rounded-full transition-opacity active:opacity-50"
             style={{ color: 'var(--given-text)' }}
             onClick={game.erase}
           >
-            ⌫
+            <BackspaceIcon className="w-6 h-6" />
           </button>
 
           {/* Close pad */}
           <button
-            className="w-10 h-10 flex items-center justify-center text-xl rounded-full transition-opacity active:opacity-50"
+            className="w-10 h-10 flex items-center justify-center rounded-full transition-opacity active:opacity-50"
             style={{ color: 'var(--given-text)' }}
             onClick={() => { setShowPad(false); game.deselect(); }}
           >
-            ⌄
+            <ChevronDownIcon className="w-6 h-6" />
           </button>
         </div>
 

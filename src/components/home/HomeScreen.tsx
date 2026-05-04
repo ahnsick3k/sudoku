@@ -1,6 +1,7 @@
 'use client';
 import { useRef, useState } from 'react';
-import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
+import { MoonIcon } from '@heroicons/react/24/outline';
+import Toggle from '@/components/ui/Toggle';
 import type { Difficulty } from '@/lib/types';
 import { DIFFICULTIES, DIFFICULTY_LABEL } from '@/lib/types';
 import type { BoardData } from '@/lib/types';
@@ -55,15 +56,10 @@ export default function HomeScreen({ onStart, isDarkMode, onToggleDark }: Props)
       </button>
 
       {/* Dark mode toggle */}
-      <button
-        className="mt-4 flex items-center gap-1.5 min-h-[44px] px-3 text-[11px] tracking-widest transition-opacity active:opacity-50"
-        style={{ color: 'var(--muted)' }}
-        onClick={onToggleDark}
-      >
-        {isDarkMode
-          ? <><SunIcon className="w-4 h-4" /> LIGHT MODE</>
-          : <><MoonIcon className="w-4 h-4" /> DARK MODE</>}
-      </button>
+      <div className="mt-4 flex items-center gap-2" style={{ color: 'var(--muted)' }}>
+        <MoonIcon className="w-4 h-4" />
+        <Toggle checked={isDarkMode} onChange={onToggleDark} />
+      </div>
     </div>
   );
 }

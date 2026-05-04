@@ -1,9 +1,9 @@
 'use client';
 import { useEffect, useRef } from 'react';
 import {
-  SunIcon, MoonIcon,
-  PlusCircleIcon, ArrowPathIcon, ChevronRightIcon,
+  PlusCircleIcon, ArrowPathIcon,
 } from '@heroicons/react/24/outline';
+import Toggle from '@/components/ui/Toggle';
 import type { Difficulty } from '@/lib/types';
 import { DIFFICULTIES, DIFFICULTY_LABEL, DIFFICULTY_SCORE } from '@/lib/types';
 import type { BoardData } from '@/lib/types';
@@ -77,18 +77,12 @@ export default function MenuSheet({
 
         <div className="my-3 border-t" style={{ borderColor: 'var(--thin-grid)' }} />
 
-        <button
-          onClick={onToggleDark}
-          className="flex items-center justify-between w-full px-3 py-3.5 rounded min-h-[44px]"
-          style={{ color: 'var(--given-text)' }}
-        >
-          <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 300, fontSize: 17 }}>
-            {isDarkMode ? '라이트 모드' : '다크 모드'}
+        <div className="flex items-center justify-between w-full px-3 py-3.5 min-h-[44px]">
+          <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 300, fontSize: 17, color: 'var(--given-text)' }}>
+            다크 모드
           </span>
-          {isDarkMode
-            ? <SunIcon className="w-5 h-5" style={{ color: 'var(--muted)' }} />
-            : <MoonIcon className="w-5 h-5" style={{ color: 'var(--muted)' }} />}
-        </button>
+          <Toggle checked={isDarkMode} onChange={onToggleDark} />
+        </div>
       </div>
     </div>
   );

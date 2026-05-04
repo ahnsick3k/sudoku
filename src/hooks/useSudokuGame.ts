@@ -112,6 +112,7 @@ export function useSudokuGame(initialDifficulty: Difficulty = 'medium'): GameSta
     cf: Set<string>,
     sel: CellCoordinate | null,
   ): SudokuCellState[] => {
+    if (b.length === 0) return [];
     const selVal = sel ? b[sel.row][sel.col] : null;
     const cells: SudokuCellState[] = [];
     for (let r = 0; r < 9; r++) {

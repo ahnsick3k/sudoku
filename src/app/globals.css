@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/* ── xAI-inspired theme ──────────────────────────────── */
+:root {
+  --bg:            #F0F0F0;
+  --surface:       #ffffff;
+  --board-border:  #1F2228;
+  --cell:          #ffffff;
+  --related:       rgba(0,0,0,0.06);
+  --selected:      rgba(0,100,220,0.18);
+  --same-val:      rgba(0,100,220,0.09);
+  --conflict:      rgba(204,16,16,0.18);
+  --given-text:    #1F2228;
+  --user-text:     rgba(31,34,40,0.80);
+  --note-text:     rgba(0,0,0,0.38);
+  --muted:         rgba(0,0,0,0.45);
+  --accent:        #1F2228;
+  --accent-soft:   rgba(0,0,0,0.06);
+  --accent-label:  #ffffff;
+  --thin-grid:     rgba(0,0,0,0.12);
+}
+
+.dark {
+  --bg:            #1F2228;
+  --surface:       #1F2228;
+  --board-border:  #ffffff;
+  --cell:          #1F2228;
+  --related:       rgba(255,255,255,0.095);
+  --selected:      rgba(255,255,255,0.30);
+  --same-val:      rgba(255,255,255,0.17);
+  --conflict:      rgba(238,32,32,0.32);
+  --given-text:    #ffffff;
+  --user-text:     rgba(255,255,255,0.85);
+  --note-text:     rgba(255,255,255,0.38);
+  --muted:         rgba(255,255,255,0.45);
+  --accent:        #ffffff;
+  --accent-soft:   rgba(255,255,255,0.10);
+  --accent-label:  #1F2228;
+  --thin-grid:     rgba(255,255,255,0.14);
+}
+
+@theme inline {
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--given-text);
+  font-family: var(--font-mono);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* touch — prevent double-tap zoom */
+button { touch-action: manipulation; }
+

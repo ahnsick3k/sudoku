@@ -121,7 +121,7 @@ export default function GameScreen({ game, isDarkMode, onToggleDark, onBack }: P
 
           {/* Hint */}
           <button
-            className="relative w-10 h-10 flex items-center justify-center rounded-full transition-opacity active:opacity-50"
+            className="relative w-11 h-11 flex items-center justify-center rounded-full transition-opacity active:opacity-50"
             style={{ color: game.hintStock > 0 ? 'var(--given-text)' : 'var(--muted)' }}
             onClick={() => { if (game.consumeHint()) game.hint(); }}
           >
@@ -136,7 +136,7 @@ export default function GameScreen({ game, isDarkMode, onToggleDark, onBack }: P
 
           {/* Erase */}
           <button
-            className="w-10 h-10 flex items-center justify-center rounded-full transition-opacity active:opacity-50"
+            className="w-11 h-11 flex items-center justify-center rounded-full transition-opacity active:opacity-50"
             style={{ color: 'var(--given-text)' }}
             onClick={game.erase}
           >
@@ -145,7 +145,7 @@ export default function GameScreen({ game, isDarkMode, onToggleDark, onBack }: P
 
           {/* Close pad */}
           <button
-            className="w-10 h-10 flex items-center justify-center rounded-full transition-opacity active:opacity-50"
+            className="w-11 h-11 flex items-center justify-center rounded-full transition-opacity active:opacity-50"
             style={{ color: 'var(--given-text)' }}
             onClick={() => { setShowPad(false); game.deselect(); }}
           >

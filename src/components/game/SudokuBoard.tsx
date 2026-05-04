@@ -63,7 +63,7 @@ function SudokuCell({ cell, onTap }: { cell: SudokuCellState; onTap: () => void 
 
   return (
     <div
-      className="flex items-center justify-center cursor-pointer relative"
+      className="flex items-center justify-center cursor-pointer relative active:opacity-60 transition-opacity"
       style={{ background: bg }}
       onClick={onTap}
     >

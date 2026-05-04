@@ -1,5 +1,9 @@
 'use client';
 import { useEffect, useRef } from 'react';
+import {
+  SunIcon, MoonIcon,
+  PlusCircleIcon, ArrowPathIcon, ChevronRightIcon,
+} from '@heroicons/react/24/outline';
 import type { Difficulty } from '@/lib/types';
 import { DIFFICULTIES, DIFFICULTY_LABEL, DIFFICULTY_SCORE } from '@/lib/types';
 import type { BoardData } from '@/lib/types';
@@ -43,8 +47,8 @@ export default function MenuSheet({
           메뉴
         </h2>
 
-        <MenuRow label="새 게임" onClick={onNewGame} />
-        <MenuRow label="다시 시작" onClick={onRestart} />
+        <MenuRow icon={<PlusCircleIcon className="w-5 h-5" />} label="새 게임" onClick={onNewGame} />
+        <MenuRow icon={<ArrowPathIcon className="w-5 h-5" />} label="다시 시작" onClick={onRestart} />
 
         <div className="my-3 border-t" style={{ borderColor: 'var(--thin-grid)' }} />
 
@@ -75,26 +79,29 @@ export default function MenuSheet({
 
         <button
           onClick={onToggleDark}
-          className="flex items-center justify-between w-full px-3 py-3.5 rounded"
+          className="flex items-center justify-between w-full px-3 py-3.5 rounded min-h-[44px]"
           style={{ color: 'var(--given-text)' }}
         >
           <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 300, fontSize: 17 }}>
             {isDarkMode ? '라이트 모드' : '다크 모드'}
           </span>
-          <span className="text-xl">{isDarkMode ? '☀' : '☾'}</span>
+          {isDarkMode
+            ? <SunIcon className="w-5 h-5" style={{ color: 'var(--muted)' }} />
+            : <MoonIcon className="w-5 h-5" style={{ color: 'var(--muted)' }} />}
         </button>
       </div>
     </div>
   );
 }
 
-function MenuRow({ label, onClick }: { label: string; onClick: () => void }) {
+function MenuRow({ icon, label, onClick }: { icon: React.ReactNode; label: string; onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className="flex w-full px-3 py-3.5 rounded text-left transition-colors active:opacity-70"
+      className="flex items-center gap-3 w-full px-3 py-3.5 rounded text-left transition-opacity active:opacity-60 min-h-[44px]"
       style={{ fontFamily: 'var(--font-mono)', fontWeight: 300, fontSize: 17, color: 'var(--given-text)' }}
     >
+      <span style={{ color: 'var(--muted)' }}>{icon}</span>
       {label}
     </button>
   );

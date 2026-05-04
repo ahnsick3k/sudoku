@@ -1,3 +1,5 @@
+import { Bars3Icon, ShoppingCartIcon } from '@heroicons/react/24/outline';
+
 interface Props {
   onMenu: () => void;
   onShop: () => void;
@@ -8,11 +10,11 @@ export default function TopBar({ onMenu, onShop }: Props) {
     <div className="flex items-center justify-between w-full">
       <button
         onClick={onMenu}
-        className="p-2 text-xl leading-none rounded transition-opacity active:opacity-50"
+        className="p-2 rounded transition-opacity active:opacity-50"
         style={{ color: 'var(--accent)' }}
         aria-label="메뉴"
       >
-        ☰
+        <Bars3Icon className="w-6 h-6" />
       </button>
 
       <span
@@ -24,11 +26,11 @@ export default function TopBar({ onMenu, onShop }: Props) {
 
       <button
         onClick={onShop}
-        className="p-2 text-xl leading-none rounded transition-opacity active:opacity-50"
+        className="p-2 rounded transition-opacity active:opacity-50"
         style={{ color: 'var(--accent)' }}
         aria-label="샵"
       >
-        🛒
+        <ShoppingCartIcon className="w-6 h-6" />
       </button>
     </div>
   );

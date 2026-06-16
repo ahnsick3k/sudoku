@@ -28,7 +28,7 @@ export default function HomeScreen({ onStart, isDarkMode, onToggleDark }: Props)
       className="flex flex-col items-center h-full overflow-y-auto px-5"
       style={{
         background: 'var(--bg)',
-        paddingTop: 'max(env(safe-area-inset-top, 0px), 36px)',
+        paddingTop: 'max(env(safe-area-inset-top, 0px), 56px)',
         paddingBottom: 'max(env(safe-area-inset-bottom, 0px), 24px)',
       }}
     >

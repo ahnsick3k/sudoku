@@ -43,6 +43,13 @@ export default function SudokuApp() {
     <div className="app-outer">
       <div className="phone-frame">
         {content}
+        {/* Phone shell overlay — decorative frame only on desktop */}
+        <img
+          src="/iphone-frame.svg"
+          className="phone-shell-overlay"
+          alt=""
+          aria-hidden="true"
+        />
       </div>
     </div>
   );

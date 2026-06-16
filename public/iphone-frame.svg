@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 844" fill="none">
+  <!-- Bezel: outer phone body minus inner screen area (evenodd = cutout) -->
+  <path fill-rule="evenodd" clip-rule="evenodd"
+    d="M44,0 L346,0 Q390,0 390,44 L390,800 Q390,844 346,844 L44,844 Q0,844 0,800 L0,44 Q0,0 44,0 Z
+       M46,13 L344,13 Q377,13 377,46 L377,798 Q377,831 344,831 L46,831 Q13,831 13,798 L13,46 Q13,13 46,13 Z"
+    fill="#1c1c1e"
+  />
+  <!-- Subtle inner highlight on bezel top edge -->
+  <path d="M90,1 L300,1 Q370,1 389,30 L1,30 Q20,1 90,1 Z" fill="rgba(255,255,255,0.04)" clip-rule="evenodd"/>
+  <!-- Dynamic island -->
+  <rect x="132" y="20" width="126" height="34" rx="17" fill="#000"/>
+  <!-- Camera dot inside dynamic island -->
+  <circle cx="235" cy="37" r="6" fill="#1a1a1a"/>
+  <circle cx="235" cy="37" r="3.5" fill="#0a0a0a"/>
+</svg>

@@ -3,6 +3,7 @@
 /* ── xAI-inspired theme ──────────────────────────────── */
 :root {
   --bg:            #F0F0F0;
+  --bg-outer:      #c4c4cc;
   --surface:       #ffffff;
   --board-border:  #1F2228;
   --cell:          #ffffff;
@@ -22,6 +23,7 @@
 
 .dark {
   --bg:            #1F2228;
+  --bg-outer:      #080808;
   --surface:       #1F2228;
   --board-border:  #ffffff;
   --cell:          #1F2228;
@@ -57,4 +59,66 @@ html, body {
 
 /* touch — prevent double-tap zoom */
 button { touch-action: manipulation; }
+
+/* ── Phone-frame layout ───────────────────────────────── */
+
+/* Outer page wrapper */
+.app-outer {
+  min-height: 100dvh;
+  background: var(--bg);
+}
+
+/* Phone container: fills screen on mobile */
+.phone-frame {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* Desktop: center app in phone-shaped frame */
+@media (min-width: 640px) {
+  .app-outer {
+    background: var(--bg-outer);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+  }
+  .phone-frame {
+    position: relative;
+    inset: auto;
+    width: 390px;
+    height: 844px;
+    border-radius: 44px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow:
+      0 0 0 1px rgba(0,0,0,0.12),
+      0 32px 80px rgba(0,0,0,0.35),
+      inset 0 0 0 1px rgba(255,255,255,0.08);
+  }
+}
+
+/* Board container with container query for square sizing */
+.board-flex {
+  flex: 1;
+  min-height: 0;
+  container-type: size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Sudoku board: largest square fitting container */
+.sudoku-board {
+  width: min(100cqw, 100cqh);
+  height: min(100cqw, 100cqh);
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
 

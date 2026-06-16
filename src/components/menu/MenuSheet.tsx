@@ -35,7 +35,7 @@ export default function MenuSheet({
   }, [onClose]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center" style={{ background: 'rgba(0,0,0,0.4)' }}>
+    <div className="absolute inset-0 z-50 flex items-end justify-center" style={{ background: 'rgba(0,0,0,0.4)' }}>
       <div
         ref={ref}
         className="w-full max-w-lg rounded-t-2xl p-5 pb-10"

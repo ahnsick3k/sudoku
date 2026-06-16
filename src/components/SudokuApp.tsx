@@ -24,22 +24,26 @@ export default function SudokuApp() {
     setScreen('game');
   };
 
-  if (screen === 'game') {
-    return (
-      <GameScreen
-        game={game}
-        isDarkMode={isDarkMode}
-        onToggleDark={() => setIsDarkMode(d => !d)}
-        onBack={() => setScreen('home')}
-      />
-    );
-  }
-
-  return (
+  const content = screen === 'game' ? (
+    <GameScreen
+      game={game}
+      isDarkMode={isDarkMode}
+      onToggleDark={() => setIsDarkMode(d => !d)}
+      onBack={() => setScreen('home')}
+    />
+  ) : (
     <HomeScreen
       onStart={handleStart}
       isDarkMode={isDarkMode}
       onToggleDark={() => setIsDarkMode(d => !d)}
     />
+  );
+
+  return (
+    <div className="app-outer">
+      <div className="phone-frame">
+        {content}
+      </div>
+    </div>
   );
 }

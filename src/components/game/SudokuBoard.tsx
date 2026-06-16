@@ -9,7 +9,7 @@ interface Props {
 export default function SudokuBoard({ rows, onTapCell }: Props) {
   return (
     <div
-      className="relative w-full aspect-square rounded-sm overflow-hidden"
+      className="sudoku-board"
       style={{
         border: '2px solid var(--board-border)',
         background: 'var(--cell)',

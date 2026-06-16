@@ -25,8 +25,12 @@ export default function HomeScreen({ onStart, isDarkMode, onToggleDark }: Props)
 
   return (
     <div
-      className="flex flex-col items-center min-h-screen px-5 pt-9"
-      style={{ background: 'var(--bg)' }}
+      className="flex flex-col items-center h-full overflow-y-auto px-5"
+      style={{
+        background: 'var(--bg)',
+        paddingTop: 'max(env(safe-area-inset-top, 0px), 36px)',
+        paddingBottom: 'max(env(safe-area-inset-bottom, 0px), 24px)',
+      }}
     >
       {/* Title */}
       <p className="tracking-[5px] text-[11px]" style={{ color: 'var(--muted)', fontFamily: 'var(--font-mono)' }}>

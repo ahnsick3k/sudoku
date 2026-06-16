@@ -68,42 +68,42 @@ export default function GameScreen({ game, isDarkMode, onToggleDark, onBack }: P
     }
   };
 
+  const PAD_H = 272;
+
   return (
     <div
-      className="flex flex-col min-h-screen items-center"
+      className="relative flex flex-col h-full overflow-hidden"
       style={{ background: 'var(--bg)' }}
-      onClick={(e) => {
-        // tap background → close pad
-        if ((e.target as HTMLElement).closest('.board-area, .pad-area')) return;
-        setShowPad(false);
-        game.deselect();
-      }}
     >
       <div
-        className="board-area flex flex-col w-full px-4 pt-3.5 gap-2"
+        className="board-area flex-1 min-h-0 flex flex-col items-center px-4"
         style={{
-          maxWidth: 520,
-          paddingBottom: showPad ? 420 : 24,
+          paddingTop: 'max(env(safe-area-inset-top, 0px), 14px)',
+          paddingBottom: showPad ? PAD_H : 16,
           transition: 'padding-bottom 0.22s ease-out',
         }}
       >
-        <TopBar onMenu={() => setShowMenu(true)} onShop={() => setShowShop(true)} />
-        <SudokuBoard rows={game.boardRows} onTapCell={handleCellTap} />
-        <StatusBar
-          timerText={game.timerDisplayText}
-          maxMistakes={game.maxMistakes}
-          heartsRemaining={game.heartsRemaining}
-        />
+        <div className="w-full h-full flex flex-col gap-2" style={{ maxWidth: 480 }}>
+          <TopBar onMenu={() => setShowMenu(true)} onShop={() => setShowShop(true)} />
+          <div className="board-flex">
+            <SudokuBoard rows={game.boardRows} onTapCell={handleCellTap} />
+          </div>
+          <StatusBar
+            timerText={game.timerDisplayText}
+            maxMistakes={game.maxMistakes}
+            heartsRemaining={game.heartsRemaining}
+          />
+        </div>
       </div>
 
       {/* Number Pad panel */}
       <div
-        className="pad-area fixed bottom-0 left-0 right-0 z-30 transition-transform duration-[220ms] ease-out"
+        className="pad-area absolute bottom-0 left-0 right-0 z-30 transition-transform duration-[220ms] ease-out"
         style={{
           transform: showPad ? 'translateY(0)' : 'translateY(100%)',
           background: 'var(--surface)',
           boxShadow: '0 -4px 16px rgba(0,0,0,0.08)',
-          paddingBottom: 'env(safe-area-inset-bottom)',
+          paddingBottom: 'env(safe-area-inset-bottom, 0px)',
         }}
       >
         {/* Dock */}
@@ -236,7 +236,7 @@ function PillSeg({ label, active, onClick }: { label: string; active: boolean; o
 
 function Overlay({ children }: { children: React.ReactNode }) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center flex-col gap-4 px-9" style={{ background: 'rgba(0,0,0,0.65)' }}>
+    <div className="absolute inset-0 z-50 flex items-center justify-center flex-col gap-4 px-9" style={{ background: 'rgba(0,0,0,0.65)' }}>
       {children}
     </div>
   );

@@ -15,7 +15,7 @@ export default function NumberPad({ selectedValue, completedNumbers, onTap }: Pr
             key={n}
             disabled={isCompleted}
             onClick={() => onTap(n)}
-            className="h-16 flex items-center justify-center rounded transition-colors active:scale-95"
+            className="h-14 flex items-center justify-center rounded transition-colors active:scale-95"
             style={{
               background:  isSelected ? 'var(--accent-soft)' : 'rgba(0,0,0,0.04)',
               color:       isCompleted ? 'var(--muted)'

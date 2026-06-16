@@ -76,18 +76,14 @@ export default function GameScreen({ game, isDarkMode, onToggleDark, onBack }: P
       style={{ background: 'var(--bg)' }}
     >
       <div
-        className="board-area flex-1 min-h-0 flex flex-col items-center px-4"
+        className="board-area flex flex-col items-center px-4 w-full"
         style={{
           paddingTop: 'max(env(safe-area-inset-top, 0px), 14px)',
-          paddingBottom: showPad ? PAD_H : 16,
-          transition: 'padding-bottom 0.22s ease-out',
         }}
       >
-        <div className="w-full h-full flex flex-col gap-2" style={{ maxWidth: 480 }}>
+        <div className="w-full flex flex-col gap-2" style={{ maxWidth: 480 }}>
           <TopBar onMenu={() => setShowMenu(true)} onShop={() => setShowShop(true)} />
-          <div className="board-flex">
-            <SudokuBoard rows={game.boardRows} onTapCell={handleCellTap} />
-          </div>
+          <SudokuBoard rows={game.boardRows} onTapCell={handleCellTap} />
           <StatusBar
             timerText={game.timerDisplayText}
             maxMistakes={game.maxMistakes}

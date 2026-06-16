@@ -3,7 +3,7 @@
 /* ── xAI-inspired theme ──────────────────────────────── */
 :root {
   --bg:            #F0F0F0;
-  --bg-outer:      #c4c4cc;
+  --bg-outer:      #d8d8d8;
   --surface:       #ffffff;
   --board-border:  #1F2228;
   --cell:          #ffffff;
@@ -23,7 +23,7 @@
 
 .dark {
   --bg:            #1F2228;
-  --bg-outer:      #080808;
+  --bg-outer:      #2e2e34;
   --surface:       #1F2228;
   --board-border:  #ffffff;
   --cell:          #1F2228;
@@ -76,15 +76,10 @@ button { touch-action: manipulation; }
   background: var(--bg);
 }
 
-/* Phone shell overlay (hidden on mobile) */
-.phone-shell-overlay {
-  display: none;
-}
-
 /* Desktop: center app in phone-shaped frame */
 @media (min-width: 640px) {
   .app-outer {
-    background: #111116;
+    background: var(--bg-outer);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -101,19 +96,8 @@ button { touch-action: manipulation; }
     overflow: hidden;
     flex-shrink: 0;
     box-shadow:
-      0 0 0 1px rgba(255,255,255,0.06),
-      0 40px 100px rgba(0,0,0,0.7);
-  }
-
-  /* PNG/SVG phone shell overlaid on top of app content */
-  .phone-shell-overlay {
-    display: block;
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 100;
+      0 0 0 1px rgba(0,0,0,0.08),
+      0 20px 60px rgba(0,0,0,0.18);
   }
 }
 

@@ -78,7 +78,7 @@ export default function GameScreen({ game, isDarkMode, onToggleDark, onBack }: P
       <div
         className="board-area flex flex-col items-center px-4 w-full"
         style={{
-          paddingTop: 'max(env(safe-area-inset-top, 0px), 14px)',
+          paddingTop: 'calc(max(env(safe-area-inset-top, 0px), 14px) + 44px)',
         }}
       >
         <div className="w-full flex flex-col gap-2" style={{ maxWidth: 480 }}>
